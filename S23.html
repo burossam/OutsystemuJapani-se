@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <title>Outsytem 日本語教材(2.3課題説明)</title>
+      <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Outsytem 日本語教材</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Version 2.3 Web アプリ作成</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">セクション</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">1.二つのモジュールを踏むWebレスポンシブアプリを作成</a>
+                <a class="dropdown-item" href="#">2.アプリモジュールをパブリッシュ</a>
+                <a class="dropdown-item" href="#">3.「"Hello from the OSMDb app"」を表示</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="S23.html">課題説明</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+    <div class="starter-template">
+      <h1>Web アプリ作成</h1>
+      <img class="media-object" src="img/outsystem231.jpg">
+    </div>
+    <div class="alert alert-dark" role="alert">
+      <h1>課題説明</h1>
+    </div>
+   <p>この演習は、OutSystems で Web アプリを段階的に開発していくための手引きとなる演習シリーズの初回である。</p>
+   <h5>作成する映画アプリの機能について</h5>
+   <table  class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>目的</th>
+        <td>映画とそれに携わった人物（キャストおよびスタッフ）のDB作成し、維持すること</td>
+      </tr>
+      <tr>
+        <th>映画情報</th>
+        <td>タイトル、あらすじ、ジャンルなど</td>
+      </tr>
+      <tr>
+        <th>人物</th>
+        <td>名前や生年月日のほか、携わった映画やそこでの役割などの略歴</td>
+      </tr>
+      <tr>
+        <th>映画アプリユーザー</th>
+        <td>こうした全情報にアクセスできるだけでなく、映画についてのコメントや評価も行う。<br>
+          こうした評価は、他ユーザーが参照して映画に関する平均的評価や全コメント確認できるように集約する。</td>
+      </tr>
+      <tr>
+        <th>映画アプリの管理者</th>
+        <td>映画の新規追加や既存映画を編集が可能。<br>
+            俳優やスタッフを追加・編集して、映画に関連付けも可能。</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>※この先、より高度な新しい OutSystems の概念について学習を進めながら、下記３つを継続的に行う。</p>
+    <ul class="list-group">
+     <li class="list-group-item">アプリ拡張</li>
+     <li class="list-group-item">パブリッシュ</li>
+     <li class="list-group-item">テスト</li>
+  </ul>
+  <p>この演習を修了する頃には、小規模ではあるものの、複数画面と概念を利用した、ブラウザから簡単にアクセスできるアプリが完成しているはず</p>
+  <div class="alert alert-primary" role="alert">
+  <h5>2.3xで行う演習内容</h5>
+  </div>
+  <p>この演習では主に下記２つのモジュールを含むWEBアプリを作成する。</p>
+
+  <table  class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>モジュール名</th>
+        <th>役割</th>
+      </tr>
+      <tr>
+        <th>Web Responsive</th>
+        <td>UI とビジネスロジックをすべて保持</td>
+      </tr>
+      <tr>
+        <th>Blank Core</th>
+        <td>データモデルを保持</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>シナリオ作成</p>
+  <p>アプリテストするために、ユーザーがブラウザでアプリを開くと「“HelloWorld”」というメッセージが表示</p>
+  <p>２つの目的</p>
+  <table  class="table table-bordered">
+  <tbody>
+    <tr>
+      <th>モジュール</th>
+      <th>役割</th>
+    </tr>
+    <tr>
+      <th>Core モジュールの要素参照</th>
+      <td>実現する為にはアプリ名を返すパブリックアクションを Core モジュールに作成が必要</td>
+    </tr>
+    <tr>
+      <th>UI モジュールの画面表示</th>
+      <td>ユーザーがアプリを開くとアクション結果がブラウザに表示される。</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+      </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
