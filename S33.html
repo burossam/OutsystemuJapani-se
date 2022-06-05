@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <title>Outsytem 日本語教材(3.3課題説明)</title>
+      <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/staile.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Outsytem 日本語教材</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Section33.html">Version 3.3 データモデリング</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">セクション</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">1.MovieエンティティとPersonエンティティを作成する</a>
+              <a class="dropdown-item" href="#">2.staticエンティティ（MovieGenreおよびPersonRole）を作成</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="S33.html">課題説明</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+<div class="container">
+
+  <div class="alert alert-dark" role="alert">
+      <h1>データモデリング</h1>
+      </div>
+      <center>
+      <img class="media-object img-fluid" src="img/outsystem3301.jpg">
+      <p>(セクション3.3終了時のデータモデルイメージ)</p>
+      </center>
+    <div class="alert alert-dark" role="alert">
+      <h3>課題説明</h3>
+    </div>
+    <p>現状とこれからやること</p>
+    <ol>
+      <li>OSMDbは作成済み</li>
+      <li>データモデルを作成してアプリの段階的な開発を開始</li>
+    </ol>
+    <hr>
+
+        <p>OSMDbのデータモデル構成について</p>
+        <ol>
+          <li>今回はOSMDb_Coreモジュールでのみ作成</li>
+          <li>下記にある構成で作成していく</li>
+        </ol>
+        <p></p>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>属性</th>
+              <th>名前</th>
+              <th>役割</th>
+              <th>カラム数</th>
+            </tr>
+            <tr>
+              <td rowspan="2">Entity</td>
+              <td>Movie</td>
+              <td>DB内の映画</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>Person</td>
+              <td>映画のキャストやスタッフ</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td rowspan="2">static Entity</td>
+              <td>MovieGenre</td>
+              <td>DB内のジャンル</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>PersonRole</td>
+              <td>対象映画での役割</td>
+              <td>4</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <img class=“img-fluid”  src="img/outsystem3301.jpg" width="500px">
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
