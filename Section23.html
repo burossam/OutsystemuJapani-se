@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outsytem 日本語教材(2.3実践)</title>
+      <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Outsytem 日本語教材</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Section23.html">Version 2.3 Web アプリ作成</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">セクション選択</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">1-2.3 Webアプリ作成</a><hr>
+              <a class="dropdown-item" href="#">2-3.3データモデル</a><hr>
+              <a class="dropdown-item" href="#">3.</a><hr>
+              <a class="dropdown-item" href="#">4.</a><hr>
+              <a class="dropdown-item" href="#">5.</a><hr>
+              <a class="dropdown-item" href="#">6.</a><hr>
+              <a class="dropdown-item" href="#">7.</a><hr>
+              <a class="dropdown-item" href="#">8.</a><hr>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">目次</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="Section23.html">1.二つのモジュールを踏むWebレスポンシブアプリを作成</a>
+              <a class="dropdown-item" href="Section33.html">2.アプリモジュールをパブリッシュ</a>
+              <a class="dropdown-item" href="#">3.「"Hello from the OSMDb app"」を表示</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="S23.html">課題説明</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+<div class="container">
+  <div class="alert alert-dark" role="alert">
+  <h2>①2つのモジュールを含むWebレスポンシブアプリを作成する</h2>
+  </div>
+  <p>最初に、下記２つのモジュールを用いて映画データベースアプリ（以降、「OSMDb」）を作成する。</p>
+    <ul>
+      <li>データを扱う Core モジュール</li>
+      <li>あらゆる UI とビジネスロジックを扱うレスポンシブモジュール</li>
+    </ul>
+    <p>それでは同アプリ作成を開始する。<br>まずは、Web Responsive モジュールからである</p>
+    <ol>
+      <li>) Service Studio を開き、下記２つのいずれかよりログインする。</li>
+      <table  class="table table-bordered">
+        <tbody>
+		<tr>
+			<td>ツール</td>
+      <td>環境</td>
+			<td>どんな場合か？</td>
+		</tr>
+		<tr>
+			<td rowspan="2"><img class="media-object" src="img/232Logo.JPG" width="80px"></td>
+			<td>個人</td>
+			<td>オンラインクラス</td>
+		</tr>
+		<tr>
+			<td>ブートキャンプ</td>
+			<td>クラスルーム<br>トレーニング</td>
+		</tr>
+	</tbody>
+    </table>
+
+      <ul>
+      <li> スタートメニューから、もしくはアイコンをダブルクリックして Service Studio を起動</li>
+      <li>［Connect to Environment］または［Switch Environment］ダイアログで、<br>
+        演習に使用する環境の下記３つを入力し、［Connect］をクリック
+        <ul>
+          <li>アドレス</li>
+            <li>ユーザー名</li>
+            <li>パスワード</li>
+        </ul>
+        </li>
+          <img class="media-object" src="img/233Logo.JPG">
+      </ul>
+
+
+      <li>「OSMDb_<学習者のイニシャル>」という名前の Web アプリと、同名の WebResponsive モジュールを作成する。
+      <br>アプリアイコンには、Top Menu アプリテンプレートと osmdb-icon.png ファイルを使用する。
+      <br>これらの Resources フォルダにある。
+      <ul>
+        <li>［Applications］タブで、［New Application］を選択</li>
+          <img class="media-object" src="img/234Logo.JPG">
+
+          <li>ここで、Web アプリ、モバイルアプリ、サービスアプリのいずれかを選択可能。
+            <br>［WebApp］を選択し、［Next］をクリック</li>
+            <img class="media-object" src="img/235Logo.JPG">
+          <li>このアプリで使用する Top Menu テンプレートを選択し、［Next］をクリック。
+            <br>テンプレートには Web ページのレイアウトストラクチャが含まれており、
+            <br>アプリ開発の開始点となる。ここでは、上部にメニューを含むページを選択。</li>
+              <img class="media-object" src="img/236Logo.JPG">
+          <li>次のダイアログで、アプリ名前を「OSMDb_<学習者のイニシャル>」に変更
+          <p>これ以降は、わかりやすくするためにスクリーンショットや参照で使用する名前はすべて「OSMDb」とする</p>
+        </li>
+        <li>下記手順を行うことによりOSMDb アプリケーションのアイコンとなる。
+          <table>
+        	<tbody>
+        		<tr>
+
+        			<td>［Upload Icon］ボタンをクリック</td>
+              <td rowspan="3"><img class="media-object" src="img/237Logo.JPG"></td>
+        		</tr>
+        		<tr>
+        			<td> Resources フォルダから osmdb-icon.pngファイルを選択</td>
+        		</tr>
+        		<tr>
+        			<td>［Open］をクリックして画像を選択。</td>
+        		</tr>
+        	</tbody>
+        </table>
+        </li>
+
+        <li>アプリの簡単な説明を入力し、［Create App］をクリック</li>
+        <img class="media-object" src="img/238Logo.JPG">
+        <li>［MODULES］領域には、OSMDb アプリのモジュールリストがある。<br>
+          初回は、最初のモジュールの名前（アプリの名前）の候補が表示。<br>
+          モジュールが［Web Responsive］になっていることを確認し、［Create Module］ボタンをクリック</li>
+          <img class="media-object" src="img/239Logo.JPG">
+      </ul>
+      </li>
+      <li>OSMDb_Core<学習者のイニシャル>モジュール（アプリの 2 番目のモジュール）を作成する。
+        <br>※UI を含まない Web Blank モジュールに設定。
+        <br>※特にクラスルームトレーニングに参加者はモジュール名前に学習者のイニシャルを忘れずに追加する事。
+        <ul>
+          <li>［Application］タブに戻る。</li>
+          <img class="media-object" src="img/23-31Logo.JPG">
+          <li>［New Module］ボタンをクリックしてモジュールを新規作成</li>
+          <img class="media-object" src="img/23-32Logo.JPG">
+
+          <li>［Web Blank］モジュールオプションを選択後に［Create Module］ボタンをクリック。</li>
+          <img class="media-object" src="img/23-33Logo.JPG">
+          <p>ワークスペースに何かが表示されている場合について</p>
+          <p>この場合はResponsive モジュールが作成されているので、
+            <br>モジュール削後に新規新規 Web Blank モジュールを作成する。</p>
+          </ul>
+        </li>
+    </ol>
+    <div class="alert alert-dark" role="alert">
+    <h1>②アプリモジュールをパブリッシュする</h1>
+    </div>
+    <h6>パブリッシュの注意事項</h6>
+    <p>このセクションでは、初めてモジュールをサーバーにパブリッシュを行うことにより,
+      <br>アプリサーバーにモジュールのバージョンが最初に作成される。
+      <br>これ以降は、新たにパブリッシュするたびに新規バージョンのモジュールが作成される。<br>
+      <span class="badge badge-pill badge-danger">
+      このため、客先のWEBサービスをシステム開発等で取扱う場合は大きな影響を与えるので、必ずパブリッシュを行う前に必ずその行為を行ってよいかを上司等に確認を行うこと。
+      </span>
+    </p>
+    <p>パブリッシュプロセス</p>
+    <ol>
+      <li>モジュール情報をサーバーにアップロード</li>
+      <li>必要なコードの生成とコンパイルを行う</li>
+      <li>必要なDBスクリプトを作成使用後にDB更新</li>
+      <li>アプリをサーバーにデプロイ</li>
+    </ol>
+    <span class="badge badge-pill badge-warning">
+    パブリッシュをやってみよう！
+  </span>
+    <ol>
+      <li>新規バージョンに反映させたい内容がすべて間違いがないかを確認 <span class="badge badge-primary">(ここが大事)</span></li>
+      <li>［1-Click Publish］ボタンをクリック　→　<span class="badge badge-warning">このボタンを押すと二度とやり直しがきかない！</span></li>
+      <li>OSMDb_Core モジュールをサーバーにパブリッシュ</li>
+      <li>下部にある［1-Click Publish］タブにパブリッシュの進捗状況が表示される。</li>
+      <img class="media-object" src="img/23-21Logo.JPG">
+      <hr>
+      <p>※パブリッシュを行うと、Done ステップで表示されている URL からモジュールの画面を利用可能となる。
+        <br>通常、URL は「https://hostname/ModuleName」である。
+        <br>現時点ではモジュールにUIが存在しないため、ブラウザ確認は不可。
+        <br>➡パブリッシュ後も［1-Click Publish］は緑色のままである。
+      </p>
+      <hr>
+      <li>［OSMDb (OSMDb)］タブを開き、OSMDb モジュールをサーバーにパブリッシュ</li>
+      <img class="media-object" src="img/23-22Logo.JPG">
+    </ol>
+    <div class="alert alert-dark" role="alert">
+     <h1>③「“Hello from the OSMDb app”」メッセージを表示</h1>
+    </div>
+     <p>今まで行ったアプリ作成</p>
+
+     <p>1.Web Responsive モジュール      2.Web Blank モジュール</p>
+
+     <p>今からやること</p>
+     <p>ブラウザでアプリを開いたエンドユーザーに対して簡単なメッセージを表示。</p>
+     <hr>
+     <p>やり方</p>
+     <p>アプリ名を返すだけの単純なアクションを Core モジュールに作成
+       <br>アプリの HomeScreen にある「“Hello World”」というメッセージの横に名前を表示</p>
+       <p>このセクションで必要なこと</p>
+       <p>あるモジュールの要素を別のモジュールで使用ために、2 つのモジュール間の依存関係を作成</p>
+       <hr>
+       <p>これから実行する多くの手順は、Service Studio を操作して熟知するうえで役立つ。
+         <br>今後のトレーニングや演習でこうした概念を詳細に扱っていくなかで、
+         <br>手順をすべて明確に理解できるようになるはず</p>
+         <hr>
+         <ol>
+           <li>Core モジュールで、アプリケーションの名前（OSMDb）を返す GetAppName サーバーアクションを作成
+           <br>GetAppName サーバーアクションを他のモジュールで再利用加納にするため［Public］に設定し、
+           <br>さらに式で利用できるようにするために［Function］に設定する必要がある。
+           <img class="media-object" src="img/23-331Logo.JPG">
+           <ol>
+             <li>OSMDb_Core モジュールに切り替え、［Logic］タブを開く。</li>
+             <li>Server Actions フォルダを右クリックし、［Add Server Action］を選択。</li>
+             <li>「GetAppName」と入力して、アクションの名前を変更</li>
+             <li>GetAppName アクションを右クリックし、［Add Output Parameter］を選択</li>
+             <li>Output Parameter の Name プロパティを「AppName」に設定</li>
+             <img class="media-object" src="img/23-332Logo.JPG">
+             <li>ツールボックスから Assign をドラッグし、Start ノードと End ノードの間のアクションフローにドラッグ</li>
+             <li>［Assign］プロパティ領域で、Assignment の一番上にあるドロップダウンからAppName パラメータを選択。
+               <br>次に、その下に「“OSMDb”」と入力。引用符も必ず入力。→AppName の値が「"OSMDb"」に設定</li>
+               <img class="media-object" src="img/23-333Logo.JPG">
+               <li>［Logic］タブで GetAppName アクションを選択し、1 回クリックしてプロパティを変更</li>
+               <li>アクションのプロパティ領域で、Public プロパティと Function プロパティを［Yes］に設定</li>
+               <img class="media-object" src="img/23-334Logo.JPG">
+               <hr>
+               <p>Function プロパティについて</p>
+               <p>［Yes］に設定➡GetAppName アクションを式使用して実行時評価可能となる。</p>
+               <p>複数の出力パラメータを設定不可</p>
+               <hr>
+           </ol>
+         </li>
+           <li>OSMDb_Core モジュールをサーバーにパブリッシュ
+             <ol>
+               <li>［1-Click Publish］ボタンをクリックして、モジュールをサーバーにパブリッシュ</li>
+               <li>［1-Click Publish］タブで、以下のように表示される</li>
+               <img class="media-object" src="img/23-335Logo.JPG">
+             </ol>
+           </li>
+           <li>OSMDb Web Responsive モジュールの GetAppName アクションを参照
+             <ol>
+               <li>［OSMDb (OSMDb)］タブをクリックして、OSMDb モジュールを開く。</li>
+               <li> 画面上部の Manage Dependencies アイコンをクリック</li>
+               <img class="media-object" src="img/23-336Logo.JPG">
+               <li>ダイアログが開き、公開要素を含むモジュールがすべて表示</li>
+               <li>左側で OSMDb_Core モジュールを選択し、
+               <br>右側で GetAppName Server アクションを選択。
+               <br>［OK］でクリック確定</li>
+               <img class="media-object" src="img/23-337Logo.JPG">
+             </ol>
+           </li>
+           <li>Empty 画面テンプレートを使用して「HomeScreen」という新しい画面を作成し、「Anonymous」に設定</li>
+           <ol>
+             <li>［Interface］タブで MainFlow UI フローをダブルクリックして、キャンバスで開く</li>
+             <li>Web Screen をワークスペースにドラッグ</li>
+             <img class="media-object" src="img/23-338Logo.JPG">
+             <li>)新しいウィンドウで Empty テンプレートを選択し、画面に「HomeScreen」という名前を付けます。
+               <br>そして［Create Screen］ボタンをクリック</li>
+             <li>右側の［Elements］領域で、MainFlow の下に HomeScreen と表示</li>
+             <li>Role の Anonymous チェックボックスにチェックを入れ、
+                <br>ログインしなくてもすべてのユーザーが画面にアクセス可能にする。</li>
+                <img class="media-object" src="img/23-339Logo.JPG">
+           </ol>
+           <li>［Expression］を HomeScreen に追加して、“Hello from the OSMDb app”を表示
+           <br>この手順でアプリに名前を付けるにあたり、GetAppName アクションを利用</li>
+           <ol>
+             <li>ツールボックスから Expression をメインコンテンツ領域にドラッグ&ドロップ</li>
+             <img class="media-object" src="img/23-351Logo.JPG">
+             <li>Expression を「"Hello from the " + GetAppName() + " app."」に設定</li>
+           </ol>
+           <li>OSMDb モジュールをパブリッシュし、ブラウザでアプリ確認</li>
+          <ol>
+            <li>［1-Click Publish］ボタンをクリックして、モジュールをサーバーにパブリッシュ</li>
+            <li>この処理を行うと、 ［1-Click Publish］ボタンが変化。→ ［Open inBrowser］ボタンである。
+            <br>  UI がすでに定義されているモジュールでは、パブリッシュが成功するたびにこのボタンが表示</li>
+            <li>(完成)このボタンをクリックして、デフォルトのブラウザでアプリを開く。以下のように表示</li>
+            <img class="media-object" src="img/23-352Logo.JPG">
+          </ol>
+          <p>セクション 2.3Webアプリ作成　終了</p>
+
+         </ol>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
