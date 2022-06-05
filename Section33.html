@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <title>Outsytem 日本語教材3.3</title>
+      <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Outsytem 日本語教材(3.3実践)</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Section33.html">Version 3.3 データモデル</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">セクション</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">1.MovieエンティティとPersonエンティティを作成する</a>
+              <a class="dropdown-item" href="#">2.staticエンティティ（MovieGenreおよびPersonRole）を作成</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="S33.html">課題説明</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+      <div class="row">
+
+        <div class="col-10">
+          <div class="alert alert-dark" role="alert">
+          <h4>①MovieエンティティとPersonエンティティの作成</h4>
+         </div>
+         <hr>
+         <p>（OutSystemsのエンティティについて）</p>
+         <hr>
+            <p>名前、ID（識別子）アトリビュートに加えて、他のアトリビュートが1つ以上必要
+           <br>Excelのスプレッドシートを使って初期設定
+           <br>この処理を「ブートストラップ」と呼ぶ。</p>
+           <hr>
+           <p>このアプリについて</p>
+           <p>2つのモジュールがあり、UIモジュールはこれらのエンティティを参照するため、これらのエンティティをPublicとして定義</p>
+           <p>それではOSMDb_CoreモジュールにMovieエンティティを作成から開始する。</p>
+           <ol>
+             <li>
+               <p>Movieエンティティの設定内容は以下の通り</p>
+               <table class="table table-bordered">
+              	<tbody>
+              		<tr>
+              			<th>name</th>
+                    <th>データ型</th>
+              			<th>必須設定</th>
+                    <th>最大文字入力数</th>
+              		</tr>
+              		<tr>
+              			<td>Title</td>
+              			<td>Text</td>
+              			<td>〇</td>
+                    <td></td>
+              		</tr>
+              		<tr>
+              			<td>Year</td>
+              			<td>Integer</td>
+              			<td>〇</td>
+                    <td></td>
+              		</tr>
+              		<tr>
+              			<td>PlotSummary</td>
+              			<td>Text</td>
+              			<td></td>
+                    <td>500</td>
+              		</tr>
+                  <tr>
+              			<td>GrossTakingsAmount</td>
+              			<td>Currency</td>
+              			<td></td>
+                    <td></td>
+              		</tr>
+                  <tr>
+              			<td>IsAvailableOnDVD</td>
+              			<td>Boolean</td>
+              			<td></td>
+                    <td></td>
+              		</tr>
+              	</tbody>
+              </table>
+              <p>エンティティは［Public］に設定
+              <br>書き込み権限ありで公開する必要があり</p>
+              <ol type="a">
+                <img class=“img-fluid”  src="img/outsystem3311.jpg">
+                <li>ワークスペースの右上にある［Data］タブをクリックして、Data要素に切り替え</li>
+                <li>［Elements］領域でEntitiesフォルダを右クリックし、［Add Entity］を選択</li>
+                <li>エンティティの名前に「Movie」と入力</li>
+                <li>•	Movieエンティティを展開し、自動採番のIdアトリビュートに加えて、
+                  <br>CRUD（作成、読み取り、更新、削除）機能を担う6個のEntityアクションがあるが、
+                	<br>このエンティティはUIモジュールで使用するために右下のプロパティエディタでPublicプロパティを［Yes］に変更</li>
+                 <hr>
+                  <p>（モジュールにエラーがある時の確認方法）
+                  <br>エンティティに赤下線が引かれ、［TrueChange］タブに赤いX印が付いている
+                  <br>エンティティは1つの自動採番アトリビュートでは不成立である。
+                  <hr>
+                </p>
+                <li>引き続きエンティティのプロパティでExpose Readonlyを［No］に設定して、
+                  <br>エンティティを書き込み権限ありで公開する</li>
+                <li>Movieエンティティを右クリックし、［Add Entity Attribute］を選択</li>
+                  <img class=“img-fluid”  src="img/outsystem3312.jpg">
+                <li>アトリビュートの名前に「Title」と入力します。するとエラーが消える</li>
+                <li>Is Mandatoryプロパティを［Yes］に変更 </li>
+                  <img class=“img-fluid”  src="img/outsystem3313.jpg">
+                  <li>Movieエンティティを右クリックし、［Add Entity Attribute］を選択
+                    <br>下記内容を設定する。
+                    <br>アトリビュート名はYear
+                    <br>デフォルトのデータ型がIntegerをMandatory
+                  </li>
+                  <li>Movieエンティティを右クリックして、［Add Entity Attribute］を選択
+                    <br>下記内容を設定する。
+                    <br>アトリビュート名はPlotSummary
+                    <br>デフォルトのデータ型がText
+                    <br>Length（長さ）50文字を500に変更
+                  </li>
+                  <img class=“img-fluid”  src="img/outsystem3314.jpg">
+                  <li>更に下記2つのAttributeを新規追加
+                    <br>GrossTakingsAmount - Currency
+                    <br>IsAvailableOnDVD   - Boolean
+                  </li>
+                  <hr>
+                  <p>補足</p>
+                  <p>OutSystemsは、アトリビュート or 変数名からデータ型を推論。<br>
+                    GrossTakinsAmountは名前に「Amount」と付いているため、<br>
+                    OutSystemsはCurrencyアトリビュートであると自動推定。<br>
+                    IsAvailableOnDVDも同様に、アトリビュート名が「Is」で始まっていることから、Booleanであると推定</p>
+                  <hr>
+                  <li>
+                    GrossTakingsAmountアトリビュートを選択し、そのLabelプロパティを「Gross Takings」に変更<br>
+                    (効果)OutSystemsで使用されるデフォルトのラベルがUI生成時に短縮化<br>
+                    ※これについては後の演習で扱う
+                  </li>
+                  <li>Movieエンティティは以下のようになる。</li>
+                  <img class=“img-fluid”  src="img/outsystem3315.jpg">
+                </ol>
+
+             </li>
+             <li>
+               <ol>
+                 <li>新規Personエンティティの作成
+                   <p>Personエンティティのに含めるアトリビュート設定内容は以下の通り</p>
+                   <table class="table table-bordered">
+                   <tbody>
+                     <tr>
+                       <th>アトリビュート名</th>
+                        <th>データ型</th>
+                       <th>必須設定</th>
+                     </tr>
+                     <tr>
+                       <td>Name</td>
+                       <td>Text</td>
+                       <td>〇</td>
+                     </tr>
+                     <tr>
+                       <td>Surname</td>
+                       <td>Text</td>
+                       <td>〇</td>
+                     </tr>
+                     <tr>
+                       <td>DateOfBirth</td>
+                       <td>Date</td>
+                       <td>〇</td>
+                     </tr>
+                      <tr>
+                       <td>DateOfDeath</td>
+                       <td>Date</td>
+                       <td></td>
+                     </tr>
+                      <tr>
+                   </tbody>
+                  </table>
+                  <p>エンティティを［Public］に設定</p>
+                  <p>書き込み権限ありで公開</p>
+                  <p>エンティティの複数形のラベルを「People」に変更</p>
+                 </li>
+                 <li>［Data］タブで新規のエンティティを作成し、その名前を「Person」に設定</li>
+                 <li>右下のプロパティエディタで以下に変更設定<br>
+                    Publicプロパティを［Yes］<br>
+                    Expose Readonly を［No］
+                 </li>
+                 <li>下記各アトリビュートをエンティティに追加
+                   <ol>
+                     <li>Name</li>
+                     <li>Surname</li>
+                     <li>DateOfBirth</li>
+                     <li>DateOfDeath</li>
+                   </ol>
+                   <br>
+                   <p>※Service Studioは、アトリビュート名からデータ型を正確に推定可能か？
+                     <br>→必ず再確認を行うようにすること。</p>
+                 </li>
+                 <li>下記アトリビュートを必須に設定
+                   <ol>
+                     <li>Name</li>
+                     <li>Surname</li>
+                     <li>DateOfBirth</li>
+                   </ol>
+                 </li>
+                 <li>Personエンティティは以下のようになる<br>
+                   <img class=“img-fluid”  src="img/outsystem3316.jpg">
+                 </li>
+                 <li>Personエンティティを選択し、プロパティエディタでMore…プロパティをダブルクリックして、エンティティエディタを起動</li>
+                 <li>エンティティエディタのダイアログで［More Options］セクションを展開し、<br>
+                   Label (plural)プロパティを「People」に変更<br>
+                   ［Close］ボタンをクリック<br>
+                   <img class=“img-fluid”  src="img/outsystem3317.jpg">
+                   <hr>
+                   <p>(備考)エンティティエディタで可能なこと何？</p>
+                   <p>画面の作成時にUIのデフォルトとして使用するラベルなど、エンティティに関する高度な設定を行うことができる。</p>
+                   <p>ここではPerson」というエンティティ名の正しい複数形表現の設定のみを行う<br>
+                     (多くの英単語とは違い、末尾に「s」を付けても複数形にはならないため）<br>
+                     ➡複数のPersonインスタンスに関わるモジュール要素やオペレーション<br>
+                     （どんな時に使う？）Service Studioがデフォルト名を提示する必要がある場合<br>
+                     (効果)文法的な正確さを求める場合に、後から手動調整する手間も省略可能
+                   </p>
+                   <hr>
+                 </li>
+                 <li>新規作成した2つのエンティティに、2つのExcelファイルから複数のシードデータをブートストラップ<br>
+                   この作業には、Resourceフォルダにある下記2つのExcelファイルを使用する。
+                   <ol>
+                     <li>Movies.xlsx</li>
+                     <li>People.xlsx</li>
+                   </ol>
+                 </li>
+                 <li>Movieエンティティを右クリックして［Advanced］を選択し、<br>
+                   ［Create Action to Bootstrap Data from Excel…］オプションを選択<br>
+                    <img class=“img-fluid”  src="img/outsystem3318.jpg">
+                 </li>
+                 <li>Resourcesフォルダを参照し、Movies.xlsx Excelファイルを選択</li>
+                 <li>Create Action to Bootstrap Data from Excel］ウィンドウ上の確認<br>
+                   (確認項目)Movies.xlsx Excelファイルの列ヘッダー名（Excelの列）が<br>
+                            Movieエンティティのアトリビュート名（Movie Attributes）と一致しているか<br>
+                  (一　致)［Proceed］ボタンをクリック<br>
+                  (不一致)［Cancel］ボタンをクリック<br>
+                  不一致の生じているMovieエンティティのアトリビュートの名前またはデータ型を修正<br>
+                  手順3をやり直し<br>
+                  （注意事項)エンティティのアトリビュートの名前および型は、Excelファイルの内容と一致している必要がある
+                  <hr>
+                  <p>(備考)</p>
+                  <p>前手順完了すると、画面に星印（要素が作成された領域を示すもの）が表示される。<br>
+                    Excelファイルからデータ取得し、DB追加するロジックは、<br>
+                    ［Logic］タブのBootstrapMoviesアクション(役割は現在Moviesが存在するかどうかを確認)で作成</p>
+                    <p>(未存在時の対応)</p>
+                    <p>ExcelのスプレッドシートからMoviesをインポートし、DB内のスプレッドシートの各行にMovieを作成<br>
+                      Excelファイルはモジュール内に保存される<br>
+                      (保存先)［Data］タブのResourcesフォルダ<br>
+                      （このアクションの実行タイミング）モジュールがパブリッシュされた時
+                    </p>
+                      <hr>
+                    <li>Personエンティティについても、People.xlsx Excelファイルを選択して同じプロセスを実行<br>
+                      Excelの列値とPersonアトリビュートの値が一致していることを必ず確認<br>
+                      ［Proceed］をクリック
+                    </li>
+               </ol>
+               </li>
+               <div class="col-11">
+                 <div class="alert alert-dark" role="alert">
+                 <h4>②staticエンティティ（MovieGenreおよびPersonRole）を作成</h4>
+                </div>
+             </oi>
+             <li>エンティティを作成したので、2つのstaticエンティティ（MovieGenreとPersonRole）を作成</li>
+              <br> <p>作成したstaticエンティティについて</p>
+               初期状態で下記少数のアトリビュートが含まれているが、<br>
+               その他のアトリビュートを追加もOK。
+               <ol>
+                 <li>Label</li>
+                 <li>Order</li>
+                 <li>Is_Active</li>
+               </ol>
+             <p>(注意)通常のエンティティと異なり、staticエンティティのデータは設計時に定義と初期設定を行う</p>
+             <p>staticエンティティに使用可能な値は「レコード」と呼ばれる</p>
+
+             <ol>MovieGenrestaticエンティティを作成して、<br>
+               様々なジャンルの映画を保存するための年齢制限に関する新規のアトリビュート（MinimumAge（Integer））を追加。<br>
+               エンティティに下記４つのレコードを追加し、<br>それぞれのレコードに適切な年齢制限を設定後にエンティティを公開する
+               （6、12、16、および18）
+               <table class="table table-bordered">
+               <tbody>
+                 <tr>
+                   <th>レコード名</th>
+                    <th>年齢制限数<br>(MinimumAge)</th>
+                 </tr>
+                 <tr>
+                   <td>Comedy</td>
+                   <td>6</td>
+                 </tr>
+                 <tr>
+                   <td>Action</td>
+                   <td>12</td>
+                 </tr>
+                 <tr>
+                   <td>Drama</td>
+                   <td>16</td>
+                 </tr>
+                  <tr>
+                   <td>Horror</td>
+                   <td>18</td>
+                 </tr>
+                  <tr>
+               </tbody>
+              </table>
+               <li>Service Studioで［Data］タブに切り替え</li>
+               <li>［Elements］領域でEntitiesフォルダを右クリックし、［Add Static Entity］を選択</li>
+               <li>staticエンティティの名前に「MovieGenre」と入力</li>
+               <li>展開記号をクリックしてMovieGenreエンティティを展開<br>
+                  <img class=“img-fluid”  src="img/outsystem3320.jpg"><br>
+                  <hr>
+                  <p>(備考)staticエンティティについて<br>
+                  1つのエンティティアクション（Get<staticエンティティ>）のみが含まれる<br>
+                  実行時に動的に作成 or 更新することは不可のため、CreateアクションとDeleteアクションは未存在
+                  </p>
+                  <hr>
+               </li>
+               <li>このstaticエンティティはUIモジュールで使用するため、Publicプロパティを［Yes］に変更</li>
+               <li>MovieGenreエンティティを右クリックし、［Add Entity Attribute］を選択</li>
+               <li>名前を「MinimumAge」に設定し、データ型をIntegerに変更</li>
+               <img class=“img-fluid”  src="img/outsystem3321.jpg"><br>
+               <li>MovieGenrestaticエンティティを右クリックし、［Add Record］を選択</li>
+               <li>レコードの識別子に「Comedy」と入力</li>
+               <li>(プロパティエディタ)このレコードのMinimumAgeアトリビュートの値を「6」に設定</li>
+               <li>更に下記3つのレコードを追加し、これらのMinimumAgeをそれぞれにに設定<br>
+                 これらのレコードのMinimumAgeをそれぞれに設定
+                 <ol>
+                   <li>Action  / 12</li>
+                   <li>Drama   / 16</li>
+                   <li>Horror  / 18</li>
+                 </ol>
+               </li>
+             </ol>
+              <h4> PersonRolestaticエンティティを作成</h4>
+               <p>（理由)•個人が映画で担当する様々な職業を表すため</p>
+               <p>今回設定する職業は下記の通り</p>
+                <ul>
+                  <li>Director（監督）</li>
+                  <li>Producer（プロデューサ）</li>
+                  <li>Actor   （俳優）</li>
+                  <li>Crew    （スタッフ）</li>
+                </ul>
+                  <p>※エンティティを公開する</p>
+                  <ol>
+                    <li>staticエンティティを作成し、名前を「PersonRole」に設定</li>
+                    <li>右下のプロパティエディタで、Publicプロパティを［Yes］に変更</li>
+                    <li>•	staticエンティティに下記4つのレコードを追加
+                      <ul>
+                        <li>Director</li>
+                        <li>Producer</li>
+                        <li>Actor</li>
+                        <li>Crew</li>
+                      </ul>
+                    </li>
+                    <li>staticエンティティは以下のようになる<br>
+                      <img class=“img-fluid”  src="img/outsystem3322.jpg"><br>
+                    </li>
+                    <li>緑色［1-Click Publish］ボタンをクリックして、モジュールをパブリッシュ</li>
+                    <li>(メッセージ確認)モジュールが正常にパブリッシュされたかどうかを、<br>
+                      OSMDbモジュールが古くなっていることを示す
+                      <img class=“img-fluid”  src="img/outsystem3323.jpg"><br>
+                      これは次の演習で扱う
+                    </li>
+                    <li>(数秒後に行う確認事項)<br>
+                    Movieエンティティ or Personエンティティを右クリックし、<br>
+                    ［View Data］を選択して、データが適切にプレビュー表示されること<br>
+                  <img class=“img-fluid”  src="img/outsystem3324.jpg"></li>
+                  </ol>
+              </ol>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
