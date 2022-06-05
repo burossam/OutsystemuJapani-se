@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="ja" >
+  <head>
+    <title>Outsytem 日本語教材(実践4.4)</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="navbar.css" rel="stylesheet">
+  </head>
+  <body >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+  <div class="container">
+    <span class="skiplink-text">Outsytem 日本語教材(4.4課題説明)</span>
+  </div>
+</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Outsytem 日本語教材</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample07">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">目次一覧</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07">
+            <a class="dropdown-item" href="Section23.html">2.3x-Webアプリ作成</a>
+            <a class="dropdown-item" href="Section33.html">3.3x-データモデリング #2</a>
+            <a class="dropdown-item" href="Section44.html">リストおよび詳細画面</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">セクション</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07">
+            <a class="dropdown-item" href="#">CoreモジュールからEntityを参照</a>
+            <a class="dropdown-item" href="#">Movies画面を作成</a>
+            <a class="dropdown-item" href="#">MovieDetail画面を作成</a>
+            <a class="dropdown-item" href="#">アプリメニューにエントリを追加</a>
+            <a class="dropdown-item" href="#">People画面を作成</a>
+            <a class="dropdown-item" href="#">PersonDetail画面を作成</a>
+          </div>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="S44.html">課題説明</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="Section44.html">リストおよび詳細画面</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+  <main role="main">
+    <div class="alert alert-primary" role="alert">
+      <h5>CoreモジュールからEntityを参照する</h5>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+              <p>アプリのUI開発を開始前にやっておくこと</p>
+              <p>Web Responsiveモジュール（OSMDb）がCoreモジュールで定義されたDBEntityにアクセスできるようにしておく
+                <br>➡このセクション場合はEntityをCoreモジュールからOSMDbモジュールにインポートである</p>
+                <hr>
+                <h5 class="mt-0">これにより、できることは下記の通り。</h5>
+                <hr>
+                <ol>
+                  <li type="1">OSMDb_Coreモジュールで定義されているEntityを、OSMDbモジュールの［Manage Dependencies］ダイアログで参照。
+            </div>
+                <div class="col-sm-7">
+                  <ol type="a">
+                    <li>（OSMDbモジュール）
+                      <br>ツールバーのアイコンをクリック<br>［Manage Dependencies］ダイアログを開く。
+                    </li>
+                    <li>(［Manage Dependencies］ダイアログ)
+                      <br>［Show All］オプションがプロデューサのリストで選択確認。
+                      <br>その後、リストからOSMDb_Coreモジュールを選択。</li>
+                      <li>(Coreモジュールの公開要素リスト)
+                        <br>以前の演習で作成・公開した4つのEntityが表示されているはず
+                        <br>それらを全選択し、［OK］をクリック
+                        <br>ダイアログを閉じる。
+                        <br><img class="media-object" class="rounded" src="img/outsystem443.jpg">
+                      </li>
+                      <li>ワークスペースの右上にある［Data］タブをクリック
+                        <br>Data要素を表示します。
+                        <br>Coreモジュールから参照されるEntityを、現在のモジュールで利用可能となる。
+                      </li>
+                      <li>［1-Click Publish］ボタンを使用してモジュールをパブリッシュ
+                      <br>サーバーがモジュール間の依存関係をコミット
+                      <br><img class="media-object" class="rounded" src="img/outsystem444.jpg">
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+                  </div>
+                <div class="col-sm-5">
+                      <img class="media-object" class="rounded" src="img/outsystem442.jpg">
+                      <img class="media-object" class="rounded" src="img/outsystem445.jpg">
+                </div>
+                <div class="col-sm-12">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>Movies画面を作成</h5>
+                    </div>
+                    <p>この演習では、映画リスト画面を表示作成する。</p>
+                    <p>これらの映画は、DB（具体的にはMovieEntity）から取得。</p>
+                    <p>※Service Studioで定義されたDBEntityからでないと映画を取得できないという意味ではない。</p>
+                    <p>必要に応じて、他のソース（外部DB、Webサービスなど）からも取得可能。</p>
+                    <p>Movies画面を作成するには、複数の手順を踏む必要がある。</p>
+                    <ol>
+                        <li>HomeScreenを実際に新しいMovies画面にする準備を行う。</li>
+                        <li>画面のPreparationを使用してDBから映画データを取得。</li>
+                        <li>
+                            (Preparationのクエリ結果)
+                            <br>ソースレコードリスト設定画面のTable Recordsウィジェットを使用し、
+                            <br>映画リストを表示
+                        </li>
+
+                        <ol>
+                            <li>
+                                既存のHomeScreenを使用して、Movies画面を作成。
+                                <br>画面名前を変更後に「“Hello World”」メッセージを削除。
+                                <ol type="a">
+                                    <li>ワークスペースの右上にある［Interface］タブに切り替え、MainFlowを展開。</li>
+                                    <li>［HomeScreen］をクリック＞名前を「Movies」に変更</li>
+                                    <li>Movies画面をダブルクリック>キャンバスで開く。</li>
+                                    <li>
+                                        キャンバスで「“Hello from the OSMDb app”」式を右クリック
+                                        <br>［Delete］オプションを選択
+                                    </li>
+                                    <img class="media-object" class="rounded" src="img/outsystem446.jpg">
+                                </ol>
+                            </li>
+                            <li>
+                                MovieEntityから全の映画を取得するために、Movies画面内にPreparationを作成。
+                                <p>
+                                    Preparationとは？
+                                    <br>面構築時に必要なデータを揃えておく為に、画面描画前に実行される特別アクションのこと
+                                </p>
+                                <ol type="a">
+                                    <li>
+                                        ［Elements］領域でMovies画面を右クリック＞［Add Preparation］を選択。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem447.jpg">
+                                        <hr>
+                                        (備考)エディタでPreparationフローが自動的に開く
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        AggregateをStartとEndの間のフローにドラッグして、フローリンク。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem448.jpg">
+                                        <hr>
+                                        <p>(備考)</p>
+                                        <p>Aggregateがフローに接続され、「Aggregate1」になっている。</p>
+                                        <p>
+                                            下記2つがいずれも赤色に変化していることに注目
+                                            <ul>
+                                                <li>緑色の［1-Click Publish］ボタン</li>
+                                                <li>［TrueChange］タブにある緑色のチェックマーク</li>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            これはAggregate1にマウスポインタを合わせると、
+                                            <br>Aggregateを有効にするには1つ以上のEntityを含める必要がある旨を知らせするヒント表示である
+                                        </p>
+                                    </li>
+
+                                    <li>Aggregate1をダブルクリック>Aggregateエディタで開く。</li>
+                                    <li>
+                                        ［Data］タブに切り替え、MovieEntityをキャンバスにドラッグ&ドロップ。
+                                        <br>DB（MovieEntity）から全映画を取得するAggregateが設定。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem449.jpg">
+                                        <p>これでデータ用意は完了となる</p>
+                                        <hr>
+                                        <p>(備考)</p>
+                                        <p>MovieEntityをAggregateにドラッグ&ドロップ＞Aggregateには自動的に「GetMovies」という名前が付けられる</p>
+                                        <hr>
+                                    </li>
+                                </ol>
+
+                            <li>
+                                次は、Movies画面のコンテンツ作成とDB内の映画全リストを表示。
+                                <br>次の作業は以下の通り。
+                                <ol>
+                                    <li>UI画面のタイトルを「Movies」と定義。</li>
+                                    <li>画面にTableRecordsを追加</li>
+                                    <li>GetMovies Aggregateにバインド</li>
+                                    <li>IdとIsAvailableOnDVDを除く全アトリビュート列を表示</li>
+                                </ol>
+                                <br>
+                                <ol type="a">
+                                    <li>［Interface］タブに切り替え、Movies画面をダブルクリックで開く</li>
+                                    <li>
+                                        画面の［Title］領域に「Movies」と入力
+                                        <br><img class="media-object" class="rounded" src="img/outsystem4410.jpg">
+                                    </li>
+                                    <li>
+                                        ツールボックスにあるTable Recordsウィジェットを画面の［Main Content］領域にドラッグ&ドロップ。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem4411.jpg">
+                                        <hr>
+                                        <p>備考</p>
+                                        <p>Table Recordsが「TableRecords1」になり、赤色強調表示。</p>
+                                        <p>Table Recordsに有効値を含めるには必ずSource Record Listプロパティが必要→［TrueChange］タブにエラー表示。</p>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        プロパティエディタで［Source Record List］ドロップダウンをクリックし、
+                                        <br>サジェスチョンの中からGetMovies.Listを選択。
+                                        <br>→GetMoviesクエリの結果がTableRecordsに表示するデータソースになるように定義される。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem4412.jpg">
+                                        <hr>
+                                        <p>(サジェスチョンとは？)プラットフォームの便利機能のこと</p>
+                                        <p>下記いくつかを強調表示する</p>
+                                        <ol>
+                                            <li>スコープ内の変数のうち入力先のプロパティ</li>
+                                            <li>データ型の適合するもの</li>
+                                        </ol>
+                                        <p>(重要)必ずサジェスチョンを確認し、プロパティに適切な値かどうかを要検討。</p>
+                                        <p>※候補リストの中に正しい値がない場合の対処方法</p>
+                                        <ul>
+                                            <li>［(Expression Editor…)］を使用</li>
+                                            <li>目的値を定義する</li>
+                                        </ul>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        ［Data］タブを選択し、MovieEntityをTable Records（「Drag entities or attributes here」と表示されている場所）にドラッグ&ドロップ。
+                                        <br>これは、映画データをTable Recordsに表示する際のレイアウト作成するためのアクセラレータである。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem4413.jpg">
+                                        <hr>
+                                        <p>備考</p>
+                                        <p>Table Recordsを定義するプロセスには2つの手順で定義が必要。</p>
+                                        <ol>
+                                            <li>Source Record Listプロパティでウィジェットのソースデータ</li>
+                                            <li>
+                                                データ表示する際のレイアウト画面。
+                                                <br> ※これは先ほどの手順で行った処理のこと。
+                                            </li>
+                                        </ol>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        Table Recordsに映画データが表示されるようになった。
+                                        <br><img class="media-object" class="rounded" src="img/outsystem4414.jpg">
+                                        <hr>
+                                        <p>備考</p>
+                                        <p>TableRecords：構成使用するEntityの最初の4つのアトリビュートがデフォルト表示</p>
+                                        <p>※Idは除外。アトリビュート列は、必要に応じて追加/削除可能。</p>
+                                        <p>(画面幅不足の場合)全列表示されないこともある⇒画面最大化を試すとよい。</p>
+                                        <hr>
+                                    </li>
+                                </ol>
+
+                            </li>
+                            <li>
+                                新規更新をサーバーにパブリッシュし、下記2つの事項を確認する。
+                                <ul>
+                                    <li>Movies画面にアクセスできること</li>
+                                    <li>全映画表示されていること</li>
+                                </ul>
+                                <br>
+
+                                <ol type="a">
+                                    <li>［1-Click Publish］ボタン をクリック>、モジュールをサーバーにパブリッシュ。</li>
+                                    <li>
+                                        アプリが正常にパブリッシュされたことを［1-Click Publish］タブで確認し、
+                                        <br>［Open in Browser］ボタンをクリック。
+                                    </li>
+                                    <li>ブラウザには以下のように表示される。</li>
+                                    <br>
+                                    <img class="media-object" class="rounded" src="img/outsystem4415.jpg">
+                            </li>
+                        </ol>
+
+                        </li>
+                    </ol>
+                    </ol>
+                    </ol>
+                    <div class="alert alert-primary" role="alert">
+                        <h5>MovieDetail画面を作成する</h5>
+                    </div>
+                    <p>(このセクションで作るもの）</p>
+                    <p>Formを使用して、特定の映画詳細表示するための詳細画面。</p>
+                    <p>そのためには、画面のPreparationで、Aggregateを使用してDBから映画取得する必要がある。</p>
+                    <p>このAggregateは、画面表示する映画IDでフィルタリングされる。</p>
+                    <p>そのIDが画面のInputパラメータとなる。</p>
+                    <p>必要に応じてリストに戻れるように、MovieDetail画面とMovies画面の間にリンクを追加</p>
+                    <p>Movies画面に、各映画とそれに該当するMovieDetail画面をつなぐリンクを追加し、詳細データ表示が出来るようにする。 </p>
+                    <ol>
+                        <li>
+                            Empty画面テンプレートを使用してMovieDetail画面を作成し、［Anonymous］に設定。
+                            <ol type="a">
+                                <li>Interface］タブに切り替え、MainFlowをダブルクリックで開く。</li>
+                                <li>新しいWeb ScreenをMovies画面の下にドラッグ&ドロップ。</li>
+                                <li>
+                                    新しいウィンドウでEmptyテンプレートを選択し、
+                                    <br>画面に「MovieDetail」という名前を設定。［Create Screen］ボタンをクリック。
+                                </li>
+                                <li>AnonymousロールでMovieDetail画面にアクセス出来るようにする。</li>
+                                <br>
+                                <img class="media-object" class="rounded" src="img/outsystem4417.jpg">
+                            </ol>
+                        </li>
+                        <li>
+                            MovieDetail画面に映画詳細表示するには、表示対象の特定映画を取得する必要がある。
+                            <br>そのために、IDでフィルタリングを行って映画取得するAggregateを含むPreparationを作成。
+                            <br>画面の入力パラメータは、Movie Idである。
+                            <br><img class="media-object" class="rounded" src="img/outsystem4418.jpg">
+                            <ol type="a">
+                                <li>
+                                    <br>［Elements］領域でMovieDetail画面を右クリック
+                                    <br>［Add Input Parameter］を選択＞「MovieId」という名前を設定。
+                                    <br>Input ParameterのData Typeが「Movie Identifier」に変更され、
+                                    <br>IsMandatoryが［Yes］に設定されていることを確認。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4419.jpg">
+                                    <hr>
+                                    <p>画面に必須入力パラメータがある場合</p>
+                                    <p>サーバーに画面リクエストがあるたびに、入力パラメータに値を渡す必要がある。</p>
+                                    <hr>
+                                </li>
+                                <li>MovieDetail画面を右クリックし、［Add Preparation］を選択。</li>
+                                <li>
+                                    ［Data］タブ＞MovieEntityをPreparationフローにドラッグ&ドロップ。
+                                    <br>※DBから全映画取得するAggregateが作成。⇒Movies画面のAggregateと同様のAggregateを作成するためのアクセラレータである。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4420.jpg">
+                                </li>
+                                <li>
+                                    入力パラメータのIDと一致する映画のみを取得するには、Aggregateを変更する必要がある。
+                                    <br>GetMoviesをダブルクリックでエディタを開く。
+                                </li>
+                                <li>［Filters］オプションを選択＞エディタの［FILTERS］セクションを開く</li>
+                                <li>［+Add Filter］をクリックでAggregateにフィルタを追加。⇒フィルタ条件を追加するための式エディタが開く。</li>
+                                <li>
+                                    新しいダイアログで、式を「Movie.Id = MovieId」に設定。
+                                    <br>［Done］ボタンをクリック>エディタを閉じる。
+                                    <br>⇒ID（Movie.Id）がMovieId入力パラメータと等しい映画がDBから映画が選択可能となった。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4421.jpg">
+                                    <hr>
+                                    <p>(式)直接入力や式エディタの左下にあるダイアログで要素を選択入力することも可能</p>
+                                    <p>ダイアログを使用する方法</p>
+                                    <ol>
+                                        <li>Movieを展開</li>
+                                        <li>Idアトリビュートをダブルクリック</li>
+                                        <li>［=］ボタンをクリック</li>
+                                        <li>Locals（変数）を展開してMovieIdをダブルクリック</li>
+                                    </ol>
+                                    <hr>
+                                </li>
+                                <li>Aggregateの名前が「GetMovies」から「GetMovieById」に変更。</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>MovieDetail画面のタイトルが、GetMovieByIdで取得した映画名になるように設定。</p>
+                            <p>(変化)MovieDetail画面を表示時に、どの映画を調べているかが明確化</p>
+                            <ol type="a">
+                                <li>［Interface］タブに切り替え、MovieDetail画面をダブルクリックで開く。</li>
+                                <li>
+                                    Expressionを［Title］領域にドラッグでそのまま保持。
+                                    <br>［Elements］領域にウィジェットツリーが表示され、［Title］領域が点滅。3
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4422.jpg">
+                                </li>
+                                <li>
+                                    式には有効値設定する必要がある。
+                                    <br>Locals（変数）を展開してMovieIdをダブルクリックでエディタを開く。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4423.jpg">
+                                </li>
+                                <li>式のValueプロパティをダブルクリック>、［Expression Value］ダイアログを開く。 </li>
+                                <li>
+                                    <p>［Expression Value］ダイアログで、以下の式を入力。</p>
+                                    <p>GetMovieById.List.Current.Movie.Title</p>
+                                    <p>➡reparationで定義したAggregateから返される映画タイトルを使用。</p>
+                                    <p>これは1つのみであるため、デフォルトで出力の最初の要素を指すCurrentプロパティを使用してアクセス可能。</p>
+                                    <p>［Done］をクリックで終了。</p>
+                                    <hr>
+                                    <p>備考</p>
+                                    <p>前述の式を追加する方法</p>
+                                    <ul>
+                                        <li>左下のダイアログでPreparationフォルダを展開</li>
+                                        <li>Aggregateの出力から［GetMovieById > List > Current > Movie］を選択。</li>
+                                        <li>Titleアトリビュートをダブルクリック</li>
+                                    </ul>
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4424.jpg">
+                                    <hr>
+                                </li>
+                            </ol>
+                        <li>
+                            前手順で作成したAggregateをソースとして使用>映画詳細を表示するFormを作成。
+                            <br>Idを除く全のMovieアトリビュートを表示するように設定。幅は8列にする。
+                            <ol type="a">
+                                <li>FormウィジェットをMovieDetail画面の［MainContent］領域にドラッグ&ドロップ。</li>
+                                <li>
+                                    Formのプロパティエディタで［Source Record］ドロップダウンをクリックでGetMovieById.List.Currentを選択。
+                                    <br>GetMovieById Aggregateから取得された映画レコードが表示
+                                    <br>FormがAggregateの出力にバインドされる
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4425.jpg">
+                                    <hr>
+                                    <p>(備考)全Formにソースレコードを設定する必要がある。未設定だとエラーが発生</p>
+                                    <hr>
+                                </li>
+                                <li>
+                                    Formの幅を広げるために、右側のエンドポイントを［8 col］までドラッグ。
+                                </li>
+                                <li>
+                                    ［Data］タブを開き、MovieEntityを展開
+                                    <br>YearアトリビュートをFormにドラッグ&ドロップでContainerが作成。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4426.jpg">
+                                    <p>現時点で映画のYearに対応するウィジェットは以下の通りである。</p>
+                                    <ol>
+                                        <li>Label</li>
+                                        <li>
+                                            Input（テキスト入力フィールド）
+                                            <br>⇒（テキスト入力フィールド配置方法）Labelウィジェットの下に仮配置後、Labelの横に配置
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    キャンバスでContainer要素にマウスポインタを合わせて、［MovieForm］を選択。
+                                    <br> MovieFormのLabel Positionプロパティの値を「Left Aligned」に変更。
+                                    <br>※視力が悪い方のために画像にある文字を拡大してます。
+
+                                </li>
+                                <li>
+                                    MovieFormのLabel Positionプロパティの値を「Left Aligned」に変更。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4427.jpg">
+                                    <hr>
+                                    <p>(備考)</p>
+                                    <p>（この時点でのモジュール表示）サーバーへの入力未送信を知らせる警告。</p>
+                                    <p>今のところ、この画面は映画データの表示のみに使用されるため、この警告は無視してOK。</p>
+                                    <p>※後の演習で対処する。</p>
+                                    <hr>
+                                </li>
+                                <li>キャンバスで、Movie_Year入力ウィジェットを選択。</li>
+                                <li>
+                                    そのNull Valueプロパティを「0」に変更。
+                                    <br>※エンドユーザーが年を指定しなかった場合はFormのYearにある　Null Value　を「0」にしておくということ。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4428.jpg">
+                                </li>
+                                <li>
+                                    ［Data］タブに切り替え、MovieEntityのPlotSummaryアトリビュートをMovieFormにドラッグ&ドロップ。
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4429.jpg">
+                                    <hr>
+                                    <p>(備考)</p>
+                                    <p>既存のアトリビュートに重ねるようにアトリビュートをドロップした場合、既存のアトリビュートのすぐ下に配置となる。</p>
+                                    <hr>
+                                </li>
+                                <li>
+                                    再度、下記アトリビュートをFormにドラッグ&ドロップ。
+                                    <ul>
+                                        <li>GrossTakingsAmount</li>
+                                        <li>IsAvailableOnDVD</li>
+                                    </ul>
+                                </li>
+                                <li>Gross Takings InputウィジェットのNull Valueプロパティを「0」に設定。</li>
+                                <li>
+                                    MovieFormは以下のようになる。
+                                    <p>IsAvailableOnDVDの入力はチェックボックス。⇒このアトリビュートがBooleanとして定義されているため。</p>
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4430.jpg">
+                                    <p>デフォルトについて</p>
+                                    <p>PlotSummaryの入力はMaximum Lengthが500に定義されてるため、下記どれかの入力よりも大きくなる</p>
+                                    <ul>
+                                        <li>Year</li>
+                                        <li>GrossTakingsAmount</li>
+                                    </ul>
+                                <li>
+                                    下記の通りに設定する。
+                                    <table border>
+                                        <tr align="center">
+                                            <th>対象設定</th>
+                                            <th>変更内容</th>
+                                        </tr>
+                                        <tr align="center">
+                                            <td>Text Lines</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr align="center">
+                                            <td>Movie_PlotSummary</td>
+                                            <td>入力サイズを増大</td>
+                                        </tr>
+                                    </table>
+                                    <br><img class="media-object" class="rounded" src="img/outsystem4431.jpg">
+                                </li>
+                        </li>
+                    </ol>
+                    <li>
+                        Movies画面に戻るためのリンクをFormの下に作成して、ユーザーがMovies画面に戻れるよう設定。
+                        <ol type="a">
+                            <li>
+                                LinkをMovieFormの下にドラッグ&ドロップ。
+                                <br> <img class="media-object" class="rounded" src="img/outsystem4432.jpg">
+
+                            </li>
+                            <li>
+                                <p>入力フォーカスを移動させずに、リンク内に「Back to list」と入力。</p>
+                                <p>［TrueChange］パネルのエラー表示対処方法</p>
+                                <ul>
+                                    <li>リンクには、ユーザーがリンクをクリックした場合に備えて宛先を設定する必要</li>
+                                    <li>Required Property Valueエラーをダブルクリック。</li>
+                                    <li>フォーカスがエラーの場所に移動。</li>
+                                    <br>
+                                    <img class="media-object" class="rounded" src="img/outsystem4433.jpg" >
+
+                                </ul>                              
+                            </li>
+                            <li>
+                                下記いずれかで設定
+                                <ul>
+                                    <li>ドロップダウンから［(Select Destination…) ］を選択する</li>
+                                    <li>Destinationプロパティをダブルクリック。</li>
+                                </ul>
+                            </li>
+                            <li>
+                               ［(Select Destination)］ダイアログでMainFlowを展開し、Movies画面をダブルクリック。
+                                <p>⇒ユーザーがリンククリック時に、Movies画面に移動するようになる。</p>
+                                <br><img class="media-object" class="rounded" src="img/outsystem4434.jpg">
+
+                            </li>
+                            
+                        </ol>
+                    </li>
+                    <li>
+                        Movies画面に戻るためのリンクをFormの下に作成して、ユーザーがMovies画面に戻れるよう設定。
+                        <p>8)	Formの下に、People画面に戻るためのリンクを作成</p>
+                        ※文章が６～７が抜けている
+                        <ol type="a">
+                            <li>LinkをPersonFormの下にドラッグ&ドロップ</li>
+                            <li>入力フォーカスを移動させずに、リンク内に「Back to list」と入力</li>
+                            <li>キャンバスでBack to listテキストにマウスポインタを合わせて、Link要素を選択</li>
+                            <li><p>下記いずれかで設定</p>
+                                <ul>
+                                    <li> Linkプロパティで、ドロップダウンから［(Select Destination…) ］を選択</li>
+                                    <li>Destinationプロパティをダブルクリック</li>
+                                  </ul>
+                            </li>
+                            <li>［(Select Destination)］ダイアログでMainFlowを展開し、People画面をダブルクリック。</li>
+                            <br><img class="media-object" class="rounded" src="img/outsystem4435.jpg">
+                        </ol>
+                    </li>
+                    <li>
+                        <ol type="a">
+                            <p>9)	次に、人物名をクリック>新しいPersonDetail画面にアクセスし、その人物情報を編集できるよう、<br>
+                                People画面からPersonDetail画面への移動を可能化する。</p>                       
+                            <li>［Interface］タブで、People画面をダブルクリックで開く</li>
+                            <li>PersonTableの［Name］列で人物名を選択し⇒［Link to MainFlow\PersonDetail Web Screen］オプションを選択</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol type="a">
+                            <p>新規更新をサーバーにパブリッシュし、OSMDbアプリに対して行われた更新をテスト</p>                       
+                            <li><p>下記手順を行う</p>
+                                <ul>
+                                    <li> ［1-Click Publish］ボタン をクリック</li>
+                                    <li>モジュールをサーバーにパブリッシュ</li>
+                                    <li>モジュールが正常にパブリッシュされたことを［1-Click Publish］タブで検証</li>
+                                  </ul>
+                                
+                            <li>［Open in Browser］ボタン をクリック。するとMovies画面が表示。</li>
+                            <li>People画面に移動します。PersonDetail画面へのリンクが表示</li>
+                            <li>People画面に表示された名前をクリックし、PersonDetail画面に正しく移動するかどうかを確認</li>
+                            <li>［Back to list］リンクをクリック>、People画面に戻る
+                                <img class="media-object" class="rounded" src="img/outsystem4436.jpg">
+                            </li>
+                        </ol>
+                    </li>
+                    <div class="alert alert-primary" role="alert">
+                        <h5>演習終了</h5>
+                      </div>
+                      <p>(この章でやったこと）DB内の映画および人物について、リストと詳細画面を作成</p>
+                      <ul>
+                        <li> 各画面に示する関連データを取得するために、画面のPreparationとAggregateを定義するところから画面作成を開始</li>
+                        <li>able RecordsとFormを使用して、情報をブラウザに表示するレイアウトを定義</li>
+                        <li>エンドユーザーがアプリ内を移動しやすくするために、画面間のリンクを作成</li>
+                        <li>トップメニューには各画面へのリンクも追加作成</li>
+                      </ul>
+                      <p>↑以前の演習で作成したEntityを利用し、映画および人物のデータを全表示できる簡単なアプリができた</p>
+                </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script><script src="/docs/4.3/assets/js/vendor/anchor.min.js"></script>
+<script src="/docs/4.3/assets/js/vendor/clipboard.min.js"></script>
+<script src="/docs/4.3/assets/js/vendor/bs-custom-file-input.min.js"></script>
+<script src="/docs/4.3/assets/js/src/application.js"></script>
+<script src="/docs/4.3/assets/js/src/search.js"></script>
+<script src="/docs/4.3/assets/js/src/ie-emulation-modes-warning.js"></script>
+  </body>
+</html>
